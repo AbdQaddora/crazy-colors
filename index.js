@@ -40,3 +40,17 @@ colorInput.addEventListener('change', () => {
     }
 })
 
+
+let interval;
+colorContainer.addEventListener('mouseover', () => {
+    console.log("mouseover");
+    interval = setInterval(() => {
+        const color = getRandomColor();
+        colorContainer.style = `background-color: #${color};`;
+        colorInput.value = color;
+    }, 500);
+})
+
+colorContainer.addEventListener('mouseleave', () => {
+    clearInterval(interval);
+})
