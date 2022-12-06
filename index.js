@@ -15,8 +15,8 @@ const isValidColor = (color) => {
     if (color.length !== 6) {
         return false;
     }
-
     let isValid = true;
+    color = color.toUpperCase();
     color.split("").forEach(char => {
         if (!arr.includes(char)) {
             isValid = false;
@@ -43,7 +43,6 @@ colorInput.addEventListener('change', () => {
 
 let interval;
 colorContainer.addEventListener('mouseover', () => {
-    console.log("mouseover");
     interval = setInterval(() => {
         const color = getRandomColor();
         colorContainer.style = `background-color: #${color};`;
